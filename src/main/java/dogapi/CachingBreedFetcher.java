@@ -26,13 +26,14 @@ public class CachingBreedFetcher implements BreedFetcher {
         // return statement included so that the starter code can compile and run.
         List<String> cached = cache.get(breed);
         if (cached != null) {
-            return new ArrayList<>(cached);
+            List<String> subBreeds = cache.get(breed);
+            return subBreeds;
         }
         callsMade++;
         List<String> result = breedFetcher.getSubBreeds(breed);
-        cache.put(breed, new ArrayList<>(result));
+        cache.put(breed, result);
 
-        return new ArrayList<>(result);
+        return result;
     }
 
     public int getCallsMade() {
