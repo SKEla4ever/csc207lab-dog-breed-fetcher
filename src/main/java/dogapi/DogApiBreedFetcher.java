@@ -50,7 +50,7 @@ public class DogApiBreedFetcher implements BreedFetcher {
 
             JSONArray arr = obj.getJSONArray("message");
 
-            ArrayList lst = new ArrayList();
+            List<String> lst = new ArrayList<>();
             for (int i = 0; i < arr.length(); i++) {
                 lst.add(arr.getString(i));
             }
